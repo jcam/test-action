@@ -1,0 +1,16 @@
+name: 'Anypoint Build/Deploy'
+description: 'Build and Deploy Mulesoft Anypoint applications to cloudhub or runtime fabric'
+author: 'Jesse Campbell, MMS'
+inputs: 
+    environment:
+        description: 'deployment environment'
+        default: 'dev'
+    domain:
+        description: 'base domain name'
+        default: 'mydomain'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.environment }}
+    - ${{ inputs.domain }}
